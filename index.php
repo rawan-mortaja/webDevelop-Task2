@@ -17,16 +17,16 @@
             <th>Date</th>
         </tr>
         <?php
-        $myFile = fopen("file.txt", "r") or die("Unable to open file!");
-        $data = fread($myFile, filesize("file.txt"));
-        $json = json_decode($data, true);
-        foreach ($json as $value) {
+        $file = fopen("file.txt", "r") or die("Unable to open file!");
+        $data = fread($file, filesize("file.txt"));
+        $j = json_decode($data, true);
+        foreach ($j as $row) {
         ?>
             <tr>
-                <td><?=$value['lat']?></td>
-                <td><?=$value['lon']?></td>
-                <td><?=$value['driver_name']?></td>
-                <td><?=$value['date']?></td>
+                <td><?=$row['lat']?></td>
+                <td><?=$row['lon']?></td>
+                <td><?=$row['driver_name']?></td>
+                <td><?=$row['date']?></td>
             </tr>
         <?php
         }
